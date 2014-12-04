@@ -26,7 +26,7 @@ class GhostWriter::Document
   end
 
   def serialized_params
-    Oj.dump(param_example)
+    Oj.dump(param_example, mode: :compat)
   rescue NoMemoryError, StandardError
     puts "Param serialize error: #{param_example.inspect} of #{description} at #{location}"
     param_example.inspect
